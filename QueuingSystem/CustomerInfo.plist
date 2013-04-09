@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>EggCount</key>
+	<string>1</string>
+	<key>TelNum</key>
+	<string>13526478542</string>
+	<key>Level</key>
+	<string>美食达人</string>
+	<key>Score</key>
+	<integer>260</integer>
+	<key>Discount</key>
+	<dict>
+		<key>外婆家湖滨店</key>
+		<array>
+			<string>送小可乐一瓶|0</string>
+		</array>
+		<key>外婆家兰桂店</key>
+		<array>
+			<string>午餐超值体验券|1</string>
+		</array>
+		<key>外婆家万塘店</key>
+		<array>
+			<string>买100免10元|3|2012-03-01</string>
+			<string>免费赠送麻婆豆腐一份|0</string>
+		</array>
+	</dict>
+</dict>
+</plist>
