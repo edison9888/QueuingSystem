@@ -8,14 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DiscountViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
-    NSString *lastKey;
-    int lastIndex;
-    int haveCount;
-    int lastIndexRow;
-}
+@interface DiscountViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 @property (retain, nonatomic) IBOutlet UITableView *discountTable;
-@property (retain,nonatomic) NSDictionary *discountDictionary;
+@property (retain,nonatomic) NSArray *discountArray;
 @property (retain, nonatomic) IBOutlet UILabel *eggCountLb;
 - (IBAction)getEggBtn_Clicked:(id)sender;
 @end

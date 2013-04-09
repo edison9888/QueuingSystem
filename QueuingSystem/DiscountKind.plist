@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>外婆家万塘店</key>
+	<array>
+		<string>本次消费9.5折</string>
+		<string>免费赠送青菜一份</string>
+	</array>
+	<key>外婆家兰桂店</key>
+	<array>
+		<string>午餐超值体验券</string>
+		<string>送小可乐一瓶</string>
+	</array>
+	<key>外婆家湖滨店</key>
+	<array>
+		<string>满100减10爰</string>
+		<string>免费赠送麻婆豆腐一份</string>
+	</array>
+</dict>
+</plist>

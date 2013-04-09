@@ -29,15 +29,12 @@ typedef enum{
     // Do any additional setup after loading the view from its nib.
     _discountTable.delegate=self;
     _discountTable.dataSource=self;
-    _discountDictionary=[[NSDictionary alloc] init];
+    _discountArray=[[NSArray alloc] init];
     [_eggCountLb setText:[PlistHelper getEggCount]];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    lastIndexRow=0;
-    lastIndex=0;
-    lastKey=@"";
     [self getDiscounts];
 }
 
@@ -56,25 +53,19 @@ typedef enum{
 }
 - (void)dealloc {
     [_discountTable release];
-    [_discountDictionary release];
+    [_discountArray release];
     [_eggCountLb release];
     [super dealloc];
 }
 
 -(void)getDiscounts{
-    NSDictionary *dic=[NSDictionary dictionaryWithContentsOfFile:[kDocumentsPath stringByAppendingString:@"/CustomerInfo.plist"]];
-    NSDictionary *discountDic=[dic objectForKey:@"Discount"];
-    self.discountDictionary=discountDic;
+    self.discountArray=[PlistHelper getDiscounts];
+    _eggCountLb.text=[PlistHelper getEggCount];
     [_discountTable reloadData];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSInteger count=0;
-    for (NSString *key in _discountDictionary.allKeys) {
-        NSArray *arr=[_discountDictionary objectForKey:key];
-        count+=arr.count;
-    }
-    return count;
+    return _discountArray.count;
 }
 
 -(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -87,30 +78,12 @@ typedef enum{
     if (!cell) {
         cell=[[[NSBundle mainBundle] loadNibNamed:@"DiscountCell" owner:self options:nil] objectAtIndex:0];
     }
-    int dicIndex=0;
-    
-    if (haveCount>1) {
-        dicIndex=lastIndexRow;
-    }else{
-        dicIndex=indexPath.row;
-    }
-    lastIndexRow=indexPath.row;
-    NSString *key=[[_discountDictionary allKeys] objectAtIndex:dicIndex];
+    NSArray *discountArr=[[_discountArray objectAtIndex:indexPath.row] componentsSeparatedByString:@"的"];
+    NSString *key=[discountArr objectAtIndex:0];
     cell.shopNameLb.text=key;
-    NSArray *discountArray=[_discountDictionary objectForKey:key];
-    haveCount=[discountArray count];
-    NSString *discountString;
-    if ([key isEqualToString:lastKey]) {
-        discountString=[discountArray objectAtIndex:lastIndex+1];
-        lastIndex+=1;
-    }else{
-        discountString=[discountArray objectAtIndex:0];
-        lastIndex=0;
-    }
-    lastKey=key;
-    NSArray *componentArray=[discountString componentsSeparatedByString:@"|"];
-    cell.discountNameLb.text=[componentArray objectAtIndex:0];
-    int state=[[componentArray objectAtIndex:1] intValue];
+    NSString *discount=[discountArr objectAtIndex:1];
+    cell.discountNameLb.text=[[discount componentsSeparatedByString:@"|"] objectAtIndex:0];
+    int state=[[[discount componentsSeparatedByString:@"|"] objectAtIndex:1] intValue];
     if (state==NotUse) {
         cell.stateLb.text=@"未使用";
         if ([key isEqualToString:theApp.orderShopName]) {
@@ -122,7 +95,7 @@ typedef enum{
         cell.stateLb.text=@"已过期";
         [cell.useBtn setImage:[UIImage imageNamed:@"overtime.png"] forState:UIControlStateNormal];
     }else if (state==Used){
-        cell.stateLb.text=[componentArray objectAtIndex:2];//已经使用
+        cell.stateLb.text=[[discount componentsSeparatedByString:@"|"] objectAtIndex:2];//已经使用
         [cell.useBtn setImage:[UIImage imageNamed:@"overtime.png"] forState:UIControlStateNormal];
     }
     cell.selectionStyle=UITableViewCellSelectionStyleNone;

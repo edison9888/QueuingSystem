@@ -36,6 +36,7 @@
     [self.window makeKeyAndVisible];
     
     [self copyFileToDocuments:@"CustomerInfo.plist"];
+    [self copyFileToDocuments:@"DiscountKind.plist"];
     return YES;
 }
 

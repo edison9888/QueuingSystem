@@ -67,7 +67,10 @@
 		847D0E551713F3F800F86DC8 /* EggPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D0E531713F3F800F86DC8 /* EggPlayViewController.xib */; };
 		847D0E571713F4A600F86DC8 /* eggplay_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 847D0E561713F4A600F86DC8 /* eggplay_background@2x.png */; };
 		847D0E5A1713F4C900F86DC8 /* egg_broken@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 847D0E581713F4C800F86DC8 /* egg_broken@2x.png */; };
-		847D0E5B1713F4C900F86DC8 /* egg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 847D0E591713F4C800F86DC8 /* egg@2x.png */; };
+		847D0E5D1713FA7A00F86DC8 /* egg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 847D0E5C1713FA7900F86DC8 /* egg@2x.png */; };
+		847D0E5F1713FAB200F86DC8 /* nav_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 847D0E5E1713FAB200F86DC8 /* nav_background@2x.png */; };
+		847D0E611713FAD800F86DC8 /* nav_backbtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 847D0E601713FAD800F86DC8 /* nav_backbtn@2x.png */; };
+		847D0E631713FC7100F86DC8 /* DiscountKind.plist in Resources */ = {isa = PBXBuildFile; fileRef = 847D0E621713FC7100F86DC8 /* DiscountKind.plist */; };
 		84D305CA17125896008C87C6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D305C917125896008C87C6 /* UIKit.framework */; };
 		84D305CC17125896008C87C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D305CB17125896008C87C6 /* Foundation.framework */; };
 		84D305CE17125896008C87C6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D305CD17125896008C87C6 /* CoreGraphics.framework */; };
@@ -177,7 +180,10 @@
 		847D0E531713F3F800F86DC8 /* EggPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EggPlayViewController.xib; sourceTree = "<group>"; };
 		847D0E561713F4A600F86DC8 /* eggplay_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eggplay_background@2x.png"; sourceTree = "<group>"; };
 		847D0E581713F4C800F86DC8 /* egg_broken@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "egg_broken@2x.png"; sourceTree = "<group>"; };
-		847D0E591713F4C800F86DC8 /* egg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "egg@2x.png"; sourceTree = "<group>"; };
+		847D0E5C1713FA7900F86DC8 /* egg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "egg@2x.png"; sourceTree = "<group>"; };
+		847D0E5E1713FAB200F86DC8 /* nav_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_background@2x.png"; sourceTree = "<group>"; };
+		847D0E601713FAD800F86DC8 /* nav_backbtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_backbtn@2x.png"; sourceTree = "<group>"; };
+		847D0E621713FC7100F86DC8 /* DiscountKind.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DiscountKind.plist; sourceTree = "<group>"; };
 		84D305C517125896008C87C6 /* QueuingSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QueuingSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D305C917125896008C87C6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84D305CB17125896008C87C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -414,6 +420,7 @@
 				84D305E217125896008C87C6 /* ViewController.m */,
 				84D305E417125896008C87C6 /* ViewController.xib */,
 				84D305D017125896008C87C6 /* Supporting Files */,
+				847D0E621713FC7100F86DC8 /* DiscountKind.plist */,
 				847D0DEE1712B93A00F86DC8 /* CustomerInfo.plist */,
 			);
 			path = QueuingSystem;
@@ -489,8 +496,10 @@
 		84D3061F17126284008C87C6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				847D0E601713FAD800F86DC8 /* nav_backbtn@2x.png */,
+				847D0E5E1713FAB200F86DC8 /* nav_background@2x.png */,
+				847D0E5C1713FA7900F86DC8 /* egg@2x.png */,
 				847D0E581713F4C800F86DC8 /* egg_broken@2x.png */,
-				847D0E591713F4C800F86DC8 /* egg@2x.png */,
 				847D0E561713F4A600F86DC8 /* eggplay_background@2x.png */,
 				847D0E341713BF3A00F86DC8 /* menu_background@2x.png */,
 				847D0E111713B68A00F86DC8 /* orderview_orderbtn_clicked@2x.png */,
@@ -634,7 +643,10 @@
 				847D0E551713F3F800F86DC8 /* EggPlayViewController.xib in Resources */,
 				847D0E571713F4A600F86DC8 /* eggplay_background@2x.png in Resources */,
 				847D0E5A1713F4C900F86DC8 /* egg_broken@2x.png in Resources */,
-				847D0E5B1713F4C900F86DC8 /* egg@2x.png in Resources */,
+				847D0E5D1713FA7A00F86DC8 /* egg@2x.png in Resources */,
+				847D0E5F1713FAB200F86DC8 /* nav_background@2x.png in Resources */,
+				847D0E611713FAD800F86DC8 /* nav_backbtn@2x.png in Resources */,
+				847D0E631713FC7100F86DC8 /* DiscountKind.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

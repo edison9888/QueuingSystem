@@ -10,6 +10,7 @@
 
 @interface OrderViewController : UIViewController
 - (IBAction)peopleCountBtn_Clicked:(id)sender;
+- (IBAction)backBtn_Clicked:(id)sender;
 @property (retain, nonatomic) IBOutlet UILabel *shopNameLb;
 @property (retain, nonatomic) IBOutlet UILabel *peopleCountLb;
 - (IBAction)orderBtn_Clicked:(UIButton *)sender;

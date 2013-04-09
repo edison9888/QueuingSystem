@@ -58,6 +58,10 @@
         _listNum=4;
     }
 }
+
+- (IBAction)backBtn_Clicked:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)dealloc {
     [_shopNameLb release];
     [_peopleCountLb release];

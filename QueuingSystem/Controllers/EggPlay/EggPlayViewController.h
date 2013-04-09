@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EggPlayViewController : UIViewController
+@interface EggPlayViewController : UIViewController{
+    BOOL isClicked;
+}
 - (IBAction)eggBtn_Clicked:(id)sender;
+- (IBAction)backBtn_Click:(id)sender;
 
 @end
