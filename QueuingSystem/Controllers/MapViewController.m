@@ -75,6 +75,9 @@
 }
 
 - (IBAction)searchTxt_DidEndOnExit:(id)sender {
+    if ([_searchTxt.text isEqualToString:@""]) {
+        return;
+    }
     [self showPoiNearBy:_searchTxt.text];
 }
 
@@ -184,6 +187,7 @@
         cell=[[[NSBundle mainBundle] loadNibNamed:@"ShopCell" owner:self options:nil] objectAtIndex:0];
     }
     cell.shopNameLb.text=[_shopList objectAtIndex:indexPath.row];
+    cell.selectionStyle=UITableViewCellSelectionStyleGray;
     return cell;
 }
 

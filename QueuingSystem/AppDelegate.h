@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "BMapKit.h"
 #define kDocumentsPath [NSHomeDirectory() stringByAppendingString:@"/Documents"]
-#define kServiceURL @"http://www.hzgreaten.com:89/QueuingService.asmx"
+#define kServiceURL @"http://www.hzgreaten.com:90/QueuingService.asmx"
 #define theApp ((AppDelegate *)[[UIApplication sharedApplication] delegate])
-
+#define kMenuPath [NSHomeDirectory() stringByAppendingString:@"/Documents/Menu.txt"]
 typedef enum {
     ChuJiShiKe=30,
     ZhongJiShiKe=70,
@@ -29,6 +29,6 @@ typedef enum {
 }
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) ViewController *viewController;
+@property (strong, nonatomic) UIViewController *viewController;
 @property (retain,nonatomic) NSString *orderShopName;
 @end

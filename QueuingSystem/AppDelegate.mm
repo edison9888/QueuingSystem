@@ -10,6 +10,11 @@
 
 #import "ViewController.h"
 
+#import "CustomTabBarController.h"
+#import "MapViewController.h"
+#import "UserViewController.h"
+#import "DiscountViewController.h"
+#import "MenuViewController.h"
 @implementation AppDelegate
 
 - (void)dealloc
@@ -31,9 +36,38 @@
 	}
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
+    
+    CustomTabBarController *tabbarController=[[CustomTabBarController alloc] init];
+    MapViewController *mapView=[[MapViewController alloc] init];
+    mapView.title=@"餐馆信息";
+    UINavigationController *mapNav=[[UINavigationController alloc] initWithRootViewController:mapView];
+    MenuViewController *orderView=[[MenuViewController alloc] init];
+    NSData *menuData=[NSData dataWithContentsOfFile:kMenuPath];
+    if (menuData==nil) {
+        orderView.isNew=YES;
+    }else{
+        orderView.isNew=NO;
+    }
+    orderView.title=@"电子订单";
+    DiscountViewController *discountView=[[DiscountViewController alloc] init];
+    discountView.title=@"优惠餐券";
+    UserViewController *userView=[[UserViewController alloc] init];
+    userView.title=@"会员中心";
+    [tabbarController setViewControllers:[NSArray arrayWithObjects:mapNav,orderView,discountView,userView, nil]];
+    [(UITabBarItem *)[tabbarController.tabBar.items objectAtIndex:0] setImage:[UIImage imageNamed:@"tabbar_mapview.png"]];
+    [(UITabBarItem *)[tabbarController.tabBar.items objectAtIndex:1] setImage:[UIImage imageNamed:@"tabbar_orderview.png"]];
+    [(UITabBarItem *)[tabbarController.tabBar.items objectAtIndex:2] setImage:[UIImage imageNamed:@"tabbar_discountview.png"]];
+    [(UITabBarItem *)[tabbarController.tabBar.items objectAtIndex:3] setImage:[UIImage imageNamed:@"tabbar_userview.png"]];
+//    [self presentViewController:tabbarController animated:YES completion:nil];
+    self.viewController = tabbarController;
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    [mapView release];
+    [mapNav release];
+    [orderView release];
+    [discountView release];
+    [userView release];
+    [tabbarController release];
     
     [self copyFileToDocuments:@"CustomerInfo.plist"];
     [self copyFileToDocuments:@"DiscountKind.plist"];

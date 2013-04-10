@@ -16,6 +16,8 @@
 @class Service1_SigbnResponse;
 @class Service1_Delay;
 @class Service1_DelayResponse;
+@class Service1_GetCountBeforeMe;
+@class Service1_GetCountBeforeMeResponse;
 @interface Service1_HelloWorld : NSObject {
 	
 /* elements */
@@ -278,6 +280,44 @@
 /* attributes */
 - (NSDictionary *)attributes;
 @end
+@interface Service1_GetCountBeforeMe : NSObject {
+	
+/* elements */
+	NSString * customerId;
+	NSString * listNum;
+/* attributes */
+}
+- (NSString *)nsPrefix;
+- (xmlNodePtr)xmlNodeForDoc:(xmlDocPtr)doc elementName:(NSString *)elName elementNSPrefix:(NSString *)elNSPrefix;
+- (void)addAttributesToNode:(xmlNodePtr)node;
+- (void)addElementsToNode:(xmlNodePtr)node;
++ (Service1_GetCountBeforeMe *)deserializeNode:(xmlNodePtr)cur;
+- (void)deserializeAttributesFromNode:(xmlNodePtr)cur;
+- (void)deserializeElementsFromNode:(xmlNodePtr)cur;
+/* elements */
+@property (retain) NSString * customerId;
+@property (retain) NSString * listNum;
+/* attributes */
+- (NSDictionary *)attributes;
+@end
+@interface Service1_GetCountBeforeMeResponse : NSObject {
+	
+/* elements */
+	NSNumber * GetCountBeforeMeResult;
+/* attributes */
+}
+- (NSString *)nsPrefix;
+- (xmlNodePtr)xmlNodeForDoc:(xmlDocPtr)doc elementName:(NSString *)elName elementNSPrefix:(NSString *)elNSPrefix;
+- (void)addAttributesToNode:(xmlNodePtr)node;
+- (void)addElementsToNode:(xmlNodePtr)node;
++ (Service1_GetCountBeforeMeResponse *)deserializeNode:(xmlNodePtr)cur;
+- (void)deserializeAttributesFromNode:(xmlNodePtr)cur;
+- (void)deserializeElementsFromNode:(xmlNodePtr)cur;
+/* elements */
+@property (retain) NSNumber * GetCountBeforeMeResult;
+/* attributes */
+- (NSDictionary *)attributes;
+@end
 /* Cookies handling provided by http://en.wikibooks.org/wiki/Programming:WebObjects/Web_Services/Web_Service_Provider */
 #import <libxml/parser.h>
 #import "xsd.h"
@@ -327,6 +367,8 @@
 - (void)SigbnAsyncUsingParameters:(Service1_Sigbn *)aParameters  delegate:(id<Service1SoapBindingResponseDelegate>)responseDelegate;
 - (Service1SoapBindingResponse *)DelayUsingParameters:(Service1_Delay *)aParameters ;
 - (void)DelayAsyncUsingParameters:(Service1_Delay *)aParameters  delegate:(id<Service1SoapBindingResponseDelegate>)responseDelegate;
+- (Service1SoapBindingResponse *)GetCountBeforeMeUsingParameters:(Service1_GetCountBeforeMe *)aParameters ;
+- (void)GetCountBeforeMeAsyncUsingParameters:(Service1_GetCountBeforeMe *)aParameters  delegate:(id<Service1SoapBindingResponseDelegate>)responseDelegate;
 @end
 @interface Service1SoapBindingOperation : NSOperation {
 	Service1SoapBinding *binding;
@@ -398,6 +440,14 @@
 	parameters:(Service1_Delay *)aParameters
 ;
 @end
+@interface Service1SoapBinding_GetCountBeforeMe : Service1SoapBindingOperation {
+	Service1_GetCountBeforeMe * parameters;
+}
+@property (retain) Service1_GetCountBeforeMe * parameters;
+- (id)initWithBinding:(Service1SoapBinding *)aBinding delegate:(id<Service1SoapBindingResponseDelegate>)aDelegate
+	parameters:(Service1_GetCountBeforeMe *)aParameters
+;
+@end
 @interface Service1SoapBinding_envelope : NSObject {
 }
 + (Service1SoapBinding_envelope *)sharedInstance;
@@ -449,6 +499,8 @@
 - (void)SigbnAsyncUsingParameters:(Service1_Sigbn *)aParameters  delegate:(id<Service1Soap12BindingResponseDelegate>)responseDelegate;
 - (Service1Soap12BindingResponse *)DelayUsingParameters:(Service1_Delay *)aParameters ;
 - (void)DelayAsyncUsingParameters:(Service1_Delay *)aParameters  delegate:(id<Service1Soap12BindingResponseDelegate>)responseDelegate;
+- (Service1Soap12BindingResponse *)GetCountBeforeMeUsingParameters:(Service1_GetCountBeforeMe *)aParameters ;
+- (void)GetCountBeforeMeAsyncUsingParameters:(Service1_GetCountBeforeMe *)aParameters  delegate:(id<Service1Soap12BindingResponseDelegate>)responseDelegate;
 @end
 @interface Service1Soap12BindingOperation : NSOperation {
 	Service1Soap12Binding *binding;
@@ -518,6 +570,14 @@
 @property (retain) Service1_Delay * parameters;
 - (id)initWithBinding:(Service1Soap12Binding *)aBinding delegate:(id<Service1Soap12BindingResponseDelegate>)aDelegate
 	parameters:(Service1_Delay *)aParameters
+;
+@end
+@interface Service1Soap12Binding_GetCountBeforeMe : Service1Soap12BindingOperation {
+	Service1_GetCountBeforeMe * parameters;
+}
+@property (retain) Service1_GetCountBeforeMe * parameters;
+- (id)initWithBinding:(Service1Soap12Binding *)aBinding delegate:(id<Service1Soap12BindingResponseDelegate>)aDelegate
+	parameters:(Service1_GetCountBeforeMe *)aParameters
 ;
 @end
 @interface Service1Soap12Binding_envelope : NSObject {

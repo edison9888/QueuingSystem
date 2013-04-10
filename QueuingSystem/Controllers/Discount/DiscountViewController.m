@@ -46,9 +46,10 @@ typedef enum{
 
 #pragma mark 砸蛋
 - (IBAction)getEggBtn_Clicked:(id)sender {
-    if ([_eggCountLb.text isEqualToString:@"1"]) {
+    if (![_eggCountLb.text isEqualToString:@"0"]) {
         EggPlayViewController *eggPlay=[[EggPlayViewController alloc] init];
         [self presentViewController:eggPlay animated:YES completion:nil];
+        [eggPlay release];
     }
 }
 - (void)dealloc {

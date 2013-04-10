@@ -53,16 +53,18 @@
 
 - (IBAction)backGroundBtn_Clicked:(id)sender {
     [_contenTxtView resignFirstResponder];
+    [_atTextView resignFirstResponder];
 }
 
 -(void)didChooseFriend:(NSString *)name{
-    [_contenTxtView setText:[_contenTxtView.text stringByAppendingFormat:@"@%@ ",name]];
+    [_atTextView setText:[_atTextView.text stringByAppendingFormat:@"@%@ ",name]];
 }
 
 - (void)dealloc {
     [_userNameLb release];
     [_friendView release];
     [_contenTxtView release];
+    [_atTextView release];
     [super dealloc];
 }
 @end

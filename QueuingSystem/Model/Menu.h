@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Menu : NSObject
-@property (retain,nonatomic) NSString *menuId;
-@property (retain,nonatomic) NSString *poepleCount;
-@property (retain,nonatomic) NSString *menuTime;
-@property (retain,nonatomic) NSString *telNum;
-@property (assign,nonatomic) int listNum;
+@interface Menu : NSObject<NSCoding,NSCopying>
+@property (copy,nonatomic) NSString *menuId;
+@property (copy,nonatomic) NSString *peopleCount;
+@property (copy,nonatomic) NSString *menuTime;
+@property (copy,nonatomic) NSString *telNum;
+@property (copy,nonatomic) NSString *listNum;
 @end

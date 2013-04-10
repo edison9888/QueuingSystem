@@ -30,6 +30,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(BOOL)shouldAutorotate{
+    return NO;
+}
+
 - (IBAction)loginBtn_Clicked:(id)sender {
     CustomTabBarController *tabbarController=[[CustomTabBarController alloc] init];
     MapViewController *mapView=[[MapViewController alloc] init];
@@ -42,7 +46,10 @@
     UserViewController *userView=[[UserViewController alloc] init];
     userView.title=@"会员中心";
     [tabbarController setViewControllers:[NSArray arrayWithObjects:mapNav,orderView,discountView,userView, nil]];
-    
+    [(UITabBarItem *)[tabbarController.tabBar.items objectAtIndex:0] setImage:[UIImage imageNamed:@"tabbar_mapview.png"]];
+    [(UITabBarItem *)[tabbarController.tabBar.items objectAtIndex:1] setImage:[UIImage imageNamed:@"tabbar_orderview.png"]];
+    [(UITabBarItem *)[tabbarController.tabBar.items objectAtIndex:2] setImage:[UIImage imageNamed:@"tabbar_discountview.png"]];
+    [(UITabBarItem *)[tabbarController.tabBar.items objectAtIndex:3] setImage:[UIImage imageNamed:@"tabbar_userview.png"]];
     [self presentViewController:tabbarController animated:YES completion:nil];
     [mapView release];
     [mapNav release];

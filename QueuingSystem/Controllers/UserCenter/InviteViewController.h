@@ -15,5 +15,6 @@
 - (IBAction)backGroundBtn_Clicked:(id)sender;
 @property (retain, nonatomic) IBOutlet UITextView *contenTxtView;
 @property (retain, nonatomic) IBOutlet UILabel *userNameLb;
+@property (retain, nonatomic) IBOutlet UITextView *atTextView;
 @property (retain,nonatomic) FriendViewController *friendView;
 @end
